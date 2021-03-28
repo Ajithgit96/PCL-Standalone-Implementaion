@@ -1,0 +1,16 @@
+
+//outlier removal
+pcl_viewer -multiview 1 /home/saiajith/bag_to_pcd_3dbv/1607359595.930461000.pcd My_scene_filtered_inliers.pcd My_scene_filtered_outliers.pcd
+
+//downsampling
+pcl_viewer -multiview 1 My_scene_filtered_inliers.pcd I_am_downsampled_1.pcd I_am_downsampled_2.pcd 
+
+
+//passthrough filtering
+pcl_viewer -multiview 1 My_scene_filtered_inliers.pcd My_scene_passthroughfiltered_inliers.pcd My_scene_passthroughfiltered_outliers.pcd
+
+
+//correspondence grouping
+./correspondence_grouping My_scene_passthroughfiltered_inliers.pcd My_scene_filtered_inliers.pcd -k -c
+
+
